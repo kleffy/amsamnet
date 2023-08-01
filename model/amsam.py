@@ -89,10 +89,10 @@ class NoAttentionAMSAM(nn.Module):
 
 # Adjust the network to use NoAttentionAMSAM
 class NoAttentionAMSAMNet(nn.Module):
-    def __init__(self, in_channels, num_classes=2):
+    def __init__(self, in_channels, num_classes=128):
         super(NoAttentionAMSAMNet, self).__init__()
         self.no_attention_amsam = NoAttentionAMSAM(in_channels, 32)  # Output channels set to 32 for simplicity
-        self.fc1 = nn.Linear(131072, 256)  # Adjusted for 32x32 image size
+        self.fc1 = nn.Linear(819200, 256)  # Adjusted for 32x32 image size
         self.fc2 = nn.Linear(256, num_classes)
 
     def forward(self, x):
